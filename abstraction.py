@@ -1,21 +1,25 @@
 from abc import ABC, abstractmethod
-
-# Python program showing
-# implementation of abstract
-# class through subclassing
- 
-import abc
- 
-class parent:      
-    def geeks(self):
+class pokemon(ABC):
+#regular method
+    def regularmethod(self):
+        print("stay out of the tall grass") 
+#abstract method
+    @abstractmethod
+    def type(self):
         pass
- 
-class child(parent):
-    def geeks(self):
-        print("child class")
- 
-# Driver code
-print( issubclass(child, parent))
-print( isinstance(child(), parent))
- 
+
+#child class
+class charmander(pokemon):
+#defines the implementation of parent's abstract method
+    def type(self):
+        print("I am a fire type")
+    def attack(self):
+        print("charmander used flamethrower") 
+
+#object utilizing both parent and child methods
+obj = charmander()
+obj.type()
+obj.attack()
+
+
 
