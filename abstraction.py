@@ -20,6 +20,7 @@ class charmander(pokemon):
 obj = charmander()
 obj.type()
 obj.attack()
+obj.regularmethod()
 
 
 
