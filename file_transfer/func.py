@@ -52,34 +52,22 @@ def process_files(self):
     filesFrom = os.listdir(from_folder)
     filesTo = os.listdir(to_folder)
 
-    filesToLength = len(filesTo)
+  
 
-    timecheck = datetime.now() - timedelta(1)
+    timecheck = datetime.now() - timedelta(hours=24)
     timenow = datetime.now()
+    
+    
 
     for a in filesFrom:
-
-        if filesToLength == 0:
-            shutil.move(os.path.join(from_folder, a), to_folder)
-        else:
-            timestampA = os.path.getmtime(from_folder + '/' + a)
-            i = 0
-
-            for b in filesTo:
-                i += 1
-                timestampB = os.path.getmtime(to_folder + '/' + b)
-
-                if a == b:
-                    if timestampA == timestampB:
-                        break
-                    else:
-                        if datetime.strptime(time.ctime(timestampA), '%a %b %d %H:%M:%S %Y') >= timecheck and datetime.strptime(time.ctime(timestampA), '%a %b %d %H:%M:%S %Y') <= timenow:
-                            shutil.move(os.path.join(from_folder, a), os.path.join(to_folder, b))
-                            break
-                else:
-                    if i == filesToLength:
-                        shutil.move(os.path.join(from_folder, a), os.path.join(to_folder, a))
-
+        timestampA = os.path.getmtime(from_folder + '/' + a)
+        timestampB = datetime.fromtimestamp(timestampA)
+    # if statement for finding if modification time was less than(greater than) 24 hours ago
+        if timestampB > timecheck:
+             shutil.move(os.path.join(from_folder, a), to_folder)
+        
+            
+        
     
     messagebox.showinfo(title="Success", message="Files were successfully processed!")
 
