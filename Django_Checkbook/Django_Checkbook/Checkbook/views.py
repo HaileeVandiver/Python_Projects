@@ -3,7 +3,7 @@ from .models import Account, Transaction
 from .forms import AccountForm, TransactionForm
 
 def home(request):
-    form = TransactionForm(data=request.POST or NONE)
+    form = TransactionForm(data=request.POST or None)
     if request.method =='POST':
         pk = request.POST['account']
         return balance(request, pk)
@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'checkbook/index.html',content)
 
 def create_account(request):
-    form = AccountForm(data=request.POST or NONE)
+    form = AccountForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -35,7 +35,7 @@ def balance(request, pk):
     return render(request, 'checkbook/BalanceSheet.html', content)
 
 def transaction(request):
-    form = TransactionForm(data=request.POST or NONE)
+    form = TransactionForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
