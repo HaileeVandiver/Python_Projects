@@ -12,7 +12,7 @@ class Account(models.Model):
 
     TransactionTypes = [('Deposit', 'Deposit'), ('Withdrawal', 'Withdrawal')]
 
-    class Transaction(model.Models):
+    class Transaction(models.Model):
         date = models.DateField()
         type = models.CharField(max_length=10, choices=TransactionTypes)
         amount = models.DecimalField(max_digits=15, decimal_places=2)
