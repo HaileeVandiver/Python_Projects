@@ -15,9 +15,9 @@ class djangoClasses(models.Model):
 # creating instances of the djangoClasses class
 
 
-classOne = djangoClasses(title="Modern Literature", courseNumber= 302, instructorName="Carey Mulligan", duration= 1.5)
-classTwo = djangoClasses(title="Calculus", courseNumber= 140, instructorName="Mark Janeba", duration= 1.5)
-classThree = djangoClasses(title="Greeks and Barbarians", courseNumber= 242, instructorName="Bachvarova", duration= 1.0)
+classOne = djangoClasses(title="Modern Literature", courseNumber=302, instructorName="Carey Mulligan", duration=1.5)
+classTwo = djangoClasses(title="Calculus", courseNumber=140, instructorName="Mark Janeba", duration=1.5)
+classThree = djangoClasses(title="Greeks and Barbarians", courseNumber=242, instructorName="Bachvarova", duration=1.0)
 
 #save objects
 classOne.save()
